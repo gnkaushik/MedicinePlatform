@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AuthProvider } from "@/auth/auth-context";
 import { CartProvider } from "@/cart/cart-context";
 import { OrderFlowProvider } from "@/orders/order-context";
+import { HealthcareBookingProvider } from "@/services/booking-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body><AuthProvider><CartProvider><OrderFlowProvider>{children}</OrderFlowProvider></CartProvider></AuthProvider></body>
+      <body><AuthProvider><CartProvider><OrderFlowProvider><HealthcareBookingProvider>{children}</HealthcareBookingProvider></OrderFlowProvider></CartProvider></AuthProvider></body>
     </html>
   );
 }

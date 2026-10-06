@@ -1,8 +1,10 @@
-import { Activity, ClipboardList, FileText, House, Pill, UserRound } from "lucide-react";
+import { Activity, ClipboardList, FileText, House, Microscope, Pill, Stethoscope, UserRound } from "lucide-react";
 
 export const publicNavigation = [
   { href: "/", label: "Home", icon: House, exact: true },
-  { href: "/medicines", label: "Medicines", icon: Pill, exact: false }
+  { href: "/medicines", label: "Medicines", icon: Pill, exact: false },
+  { href: "/lab-tests", label: "Lab tests", icon: Microscope, exact: false },
+  { href: "/consultations", label: "Consultations", icon: Stethoscope, exact: false }
 ];
 
 export const workspaceNavigation = [
