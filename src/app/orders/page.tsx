@@ -1,0 +1,14 @@
+"use client";
+
+import { ClipboardList, PackageCheck } from "lucide-react";
+import Link from "next/link";
+import { SiteHeader } from "@/components/site/site-header";
+import { useOrderFlow } from "@/orders/order-context";
+import { formatMoney } from "@/orders/pricing";
+
+export default function OrdersFoundationPage() {
+  const { latestOrder } = useOrderFlow();
+  return <><SiteHeader /><main className="min-h-[calc(100vh-72px)] bg-cloud"><div className="container-app py-10 sm:py-14"><p className="text-sm font-bold uppercase tracking-[0.14em] text-brand">Your account</p><h1 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Orders</h1><p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">A simple foundation for your future order history. Demo order records remain in this browser session only.</p>
+    {latestOrder ? <section className="mt-7 max-w-2xl rounded-3xl border border-line bg-white p-5 shadow-soft sm:p-7"><div className="flex items-start gap-4"><span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-mint text-brand"><PackageCheck size={22} aria-hidden="true" /></span><div className="min-w-0 flex-1"><p className="text-xs font-bold uppercase tracking-wider text-brand">Most recent demo order</p><h2 className="mt-1 break-all text-lg font-bold text-ink">{latestOrder.id}</h2><p className="mt-1 text-sm text-slate-500">{latestOrder.items.length} {latestOrder.items.length === 1 ? "product" : "products"} · {formatMoney.format(latestOrder.total)}</p><p className="mt-3 text-sm leading-6 text-slate-600">Placed for {latestOrder.details.fullName}. This order record is temporary and is not saved to an account or backend.</p><Link href="/checkout/confirmation" className="mt-4 inline-flex rounded-lg px-2 py-2 text-sm font-bold text-brand hover:bg-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">View confirmation</Link></div></div></section> : <section className="mt-7 max-w-2xl rounded-3xl border border-dashed border-line bg-white px-6 py-14 text-center"><span className="mx-auto grid size-12 place-items-center rounded-2xl bg-cloud text-slate-500"><ClipboardList size={22} aria-hidden="true" /></span><h2 className="mt-4 text-lg font-bold text-ink">No demo orders in this session</h2><p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-600">After placing a sample order, its confirmation will be available here until this browser session ends.</p><Link href="/medicines" className="mt-5 inline-flex rounded-xl bg-brand px-5 py-3 text-sm font-bold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">Browse medicines</Link></section>}
+  </div></main><footer className="border-t border-line bg-white"><div className="container-app py-6 text-sm text-slate-500">Medicine Platform POC · Order history is a preview only</div></footer></>;
+}

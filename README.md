@@ -9,6 +9,7 @@ A modular digital healthcare marketplace POC built with Next.js, React, TypeScri
 - **Module 3 — Home and medicines:** healthcare home experience, searchable mock medicine catalog, category filters and reusable medicine cards.
 
 - **Module 4 — Product details and cart foundation:** medicine details, related products, and a shared in-memory cart with quantity controls and summary.
+- **Module 5 — Checkout and order flow:** validated mock checkout, local-only prescription picker, review step, temporary order confirmation, and a small Orders foundation.
 
 ## Local development
 
@@ -21,7 +22,7 @@ npm run dev
 
 Visit `http://localhost:3000`. Sign in with any valid email address and a password of at least 8 characters. The mock sign-in accepts any credentials that meet those client-side requirements. Use `error@medicineplatform.test` to preview the sign-in error state.
 
-The Home and Medicines pages are also available without signing in. The medicine catalog uses sample products and INR prices for demonstration; it does not place orders or check real availability. Product selections are held in shared in-memory state; checkout and ordering are not available.
+The Home and Medicines pages are also available without signing in. The catalog uses sample products and INR prices. Cart, checkout details, and mock orders use shared in-memory state; no payment or real fulfillment is provided. The prescription picker retains only file metadata in the browser session and never sends file contents to a backend.
 
 “Remember me” stores the mock session in local browser storage; without it, the session lasts for the current browser tab. This POC does not provide real authentication or store credentials.
 

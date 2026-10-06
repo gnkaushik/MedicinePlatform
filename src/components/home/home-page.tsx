@@ -27,7 +27,7 @@ export function HomePage() {
               </div>
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-slate-500 sm:text-sm">
                 <span className="inline-flex items-center gap-1.5"><Check size={15} className="text-brand" aria-hidden="true" /> Simple category browsing</span>
-                <span className="inline-flex items-center gap-1.5"><Check size={15} className="text-brand" aria-hidden="true" /> Sample catalog, no checkout</span>
+                <span className="inline-flex items-center gap-1.5"><Check size={15} className="text-brand" aria-hidden="true" /> Sample catalog, demo checkout</span>
               </div>
             </div>
 
@@ -97,7 +97,7 @@ export function HomePage() {
             <article className="rounded-3xl border border-line bg-white p-6 sm:p-7">
               <span className="grid size-11 place-items-center rounded-2xl bg-violet-50 text-violet-700"><ShieldCheck size={20} aria-hidden="true" /></span>
               <h3 className="mt-5 text-lg font-bold text-ink">Know what is demo</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">Products and prices are examples only. This preview does not place orders or check real availability.</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Products and prices are examples only. Demo orders are temporary and do not trigger payment or real fulfillment.</p>
             </article>
           </div>
         </section>
