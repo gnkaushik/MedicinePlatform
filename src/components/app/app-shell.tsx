@@ -77,10 +77,11 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
               </button>
             </div>
           </div>
-          <nav aria-label="Mobile navigation" className="grid grid-cols-3 gap-1 border-t border-line px-4 py-2 lg:hidden sm:px-8">
+          <nav aria-label="Mobile navigation" className="grid grid-cols-4 gap-1 border-t border-line px-4 py-2 lg:hidden sm:px-8">
             {applicationNavigation.map(({ href, label, icon: Icon, exact }) => {
               const active = exact ? pathname === href : pathname.startsWith(href);
-              return <Link key={href} aria-current={active ? "page" : undefined} className={`inline-flex min-w-0 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${active ? "bg-mint text-brand" : "text-slate-600 hover:bg-slate-50"}`} href={href}><Icon size={16} aria-hidden="true" /><span className="truncate">{label}</span></Link>;
+              const mobileLabel = label === "Consultations" ? "Doctors" : label;
+              return <Link key={href} aria-current={active ? "page" : undefined} className={`inline-flex min-w-0 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${active ? "bg-mint text-brand" : "text-slate-600 hover:bg-slate-50"}`} href={href}><Icon size={16} aria-hidden="true" /><span className="truncate sm:hidden">{mobileLabel}</span><span className="hidden truncate sm:inline">{label}</span></Link>;
             })}
           </nav>
         </header>
