@@ -1,15 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { Activity, HeartPulse, LogOut, UserRound } from "lucide-react";
+import { HeartPulse, LogOut } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/auth/auth-context";
-
-const navigation = [
-  { href: "/app", label: "Overview", icon: Activity, exact: true },
-  { href: "/app/account", label: "Account", icon: UserRound, exact: false }
-];
+import { applicationNavigation } from "@/config/navigation";
 
 function initials(name: string) {
   return name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "MP";
@@ -40,9 +36,9 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
           <span className="grid size-10 place-items-center rounded-2xl bg-brand text-white"><HeartPulse size={21} strokeWidth={2.5} /></span>
           <span className="text-base font-bold tracking-tight">Medicine Platform</span>
         </Link>
-        <p className="px-6 pb-3 pt-7 text-[11px] font-bold uppercase tracking-[0.15em] text-slate-400">Workspace</p>
+        <p className="px-6 pb-3 pt-7 text-[11px] font-bold uppercase tracking-[0.15em] text-slate-400">Care platform</p>
         <nav aria-label="Main navigation" className="space-y-1 px-3">
-          {navigation.map(({ href, label, icon: Icon, exact }) => {
+          {applicationNavigation.map(({ href, label, icon: Icon, exact }) => {
             const active = exact ? pathname === href : pathname.startsWith(href);
             return (
               <Link key={href} aria-current={active ? "page" : undefined} className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${active ? "bg-mint text-brand" : "text-slate-600 hover:bg-slate-50 hover:text-ink"}`} href={href}>
@@ -79,10 +75,10 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
               </button>
             </div>
           </div>
-          <nav aria-label="Mobile navigation" className="flex gap-2 overflow-x-auto border-t border-line px-5 py-2.5 lg:hidden sm:px-8">
-            {navigation.map(({ href, label, icon: Icon, exact }) => {
+          <nav aria-label="Mobile navigation" className="grid grid-cols-4 gap-1 border-t border-line px-4 py-2 lg:hidden sm:px-8">
+            {applicationNavigation.map(({ href, label, icon: Icon, exact }) => {
               const active = exact ? pathname === href : pathname.startsWith(href);
-              return <Link key={href} aria-current={active ? "page" : undefined} className={`inline-flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${active ? "bg-mint text-brand" : "text-slate-600 hover:bg-slate-50"}`} href={href}><Icon size={16} aria-hidden="true" />{label}</Link>;
+              return <Link key={href} aria-current={active ? "page" : undefined} className={`inline-flex min-w-0 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${active ? "bg-mint text-brand" : "text-slate-600 hover:bg-slate-50"}`} href={href}><Icon size={16} aria-hidden="true" /><span className="truncate">{label}</span></Link>;
             })}
           </nav>
         </header>
