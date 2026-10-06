@@ -1,23 +1,24 @@
 # Medicine Platform
 
-POC for a modular digital healthcare marketplace.
+A modular digital healthcare marketplace POC built with Next.js, React, TypeScript and Tailwind CSS.
 
-## Module 1 — Foundation
+## Modules
 
-- Next.js 15 + TypeScript
-- Tailwind CSS
-- Responsive application shell
-- Shared design tokens
-- Netlify configuration
-- GitHub Actions build validation
-- No backend or database
+- **Module 1 — Foundation:** responsive design system, Netlify configuration and GitHub Actions checks.
+- **Module 2 — Authentication and app shell:** mock sign-in, responsive authenticated workspace, overview and account placeholder.
 
 ## Local development
 
+Requires Node.js 20 or later.
+
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+Visit `http://localhost:3000`. Sign in with any valid email address and a password of at least 8 characters. The mock sign-in accepts any credentials that meet those client-side requirements. Use `error@medicineplatform.test` to preview the sign-in error state.
+
+“Remember me” stores the mock session in local browser storage; without it, the session lasts for the current browser tab. This POC does not provide real authentication or store credentials.
 
 ## Validation
 
@@ -26,4 +27,4 @@ npm run lint
 npm run build
 ```
 
-Every pull request targeting `main`, and every merge/push to `main`, runs the same lint + production build through GitHub Actions.
+Every pull request targeting `main`, and every push to `main`, runs the same lint and production build through GitHub Actions.

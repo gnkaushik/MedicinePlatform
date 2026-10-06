@@ -1,4 +1,5 @@
 import { ArrowRight, FlaskConical, HeartPulse, Pill, ShieldCheck, Stethoscope } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   { title: "Medicines", text: "Find everyday medicines and wellness essentials.", icon: Pill },
@@ -11,12 +12,12 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <header className="border-b border-line bg-white/95 backdrop-blur">
         <div className="container-app flex h-20 items-center justify-between gap-6">
-          <a href="/" className="flex items-center gap-3" aria-label="Medicine Platform home">
+          <Link href="/" className="flex items-center gap-3" aria-label="Medicine Platform home">
             <span className="grid size-10 place-items-center rounded-2xl bg-brand text-white shadow-soft">
               <HeartPulse size={21} strokeWidth={2.5} />
             </span>
             <span className="text-lg font-bold tracking-tight text-ink">Medicine Platform</span>
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
             <a className="hover:text-brand" href="#services">Medicines</a>
@@ -25,9 +26,9 @@ export default function Home() {
             <a className="hover:text-brand" href="#care">Care Plan</a>
           </nav>
 
-          <button className="rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-brand hover:text-brand">
+          <Link href="/sign-in" className="rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2">
             Sign in
-          </button>
+          </Link>
         </div>
       </header>
 
