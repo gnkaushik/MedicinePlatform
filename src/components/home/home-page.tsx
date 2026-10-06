@@ -1,4 +1,4 @@
-import { ArrowRight, Check, HeartHandshake, Search, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Check, FlaskConical, HeartHandshake, Search, ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
 import Link from "next/link";
 import { medicineCategories } from "@/data/medicines";
 import { CategoryCard } from "@/components/home/category-card";
@@ -16,7 +16,7 @@ export function HomePage() {
                 <ShieldCheck size={16} aria-hidden="true" /> Everyday care, made clearer
               </div>
               <h1 className="max-w-2xl text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-ink sm:text-5xl lg:text-6xl">Good health starts with the little things.</h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">Find familiar everyday medicines and wellness essentials in one calm, easy-to-browse place.</p>
+              <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">Browse everyday medicines, book a doctor conversation, or arrange a sample home lab collection—all in one calm place.</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/medicines" className="inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-3.5 text-sm font-bold text-white shadow-soft transition hover:bg-brandDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2">
                   Browse medicines <ArrowRight size={17} aria-hidden="true" />
@@ -99,6 +99,26 @@ export function HomePage() {
               <h3 className="mt-5 text-lg font-bold text-ink">Know what is demo</h3>
               <p className="mt-2 text-sm leading-6 text-slate-600">Products and prices are examples only. Demo orders are temporary and do not trigger payment or real fulfillment.</p>
             </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="care-services-heading" className="container-app pb-16 sm:pb-20">
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-brand">More ways to care</p>
+            <h2 id="care-services-heading" className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Care that fits your next step.</h2>
+            <p className="mt-4 leading-7 text-slate-600">Explore the service previews and choose the kind of support you are looking for.</p>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <Link href="/consultations" className="group flex items-center gap-4 rounded-3xl border border-line bg-white p-5 transition hover:border-brand/30 hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:p-6">
+              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-sky-50 text-sky-700"><Stethoscope size={22} aria-hidden="true" /></span>
+              <span className="min-w-0 flex-1"><span className="block text-lg font-bold text-ink">Talk with a doctor</span><span className="mt-1 block text-sm leading-6 text-slate-600">Explore sample specialties and appointment times.</span></span>
+              <ArrowRight size={18} className="shrink-0 text-brand transition group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
+            <Link href="/lab-tests" className="group flex items-center gap-4 rounded-3xl border border-line bg-white p-5 transition hover:border-brand/30 hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:p-6">
+              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-violet-50 text-violet-700"><FlaskConical size={22} aria-hidden="true" /></span>
+              <span className="min-w-0 flex-1"><span className="block text-lg font-bold text-ink">Browse lab tests</span><span className="mt-1 block text-sm leading-6 text-slate-600">Compare sample tests, preparation, and home collection.</span></span>
+              <ArrowRight size={18} className="shrink-0 text-brand transition group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
           </div>
         </section>
 

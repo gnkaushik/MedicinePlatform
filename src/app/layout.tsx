@@ -6,8 +6,16 @@ import { HealthcareBookingProvider } from "@/services/booking-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Medicine Platform",
-  description: "A modern digital healthcare experience."
+  metadataBase: new URL(process.env.URL ?? "http://localhost:3000"),
+  applicationName: "Medicine Platform",
+  title: "Medicine Platform | Everyday care, made clearer",
+  description: "Browse everyday medicines, book doctor consultations, and explore home collection lab tests in one calm healthcare experience.",
+  openGraph: {
+    type: "website",
+    siteName: "Medicine Platform",
+    title: "Medicine Platform | Everyday care, made clearer",
+    description: "Browse everyday medicines, book doctor consultations, and explore home collection lab tests in one calm healthcare experience."
+  }
 };
 
 export default function RootLayout({
