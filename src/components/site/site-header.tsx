@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/auth/auth-context";
 import { publicNavigation } from "@/config/navigation";
+import { CartLink } from "@/components/cart/cart-link";
 
 export function SiteHeader() {
   const { user, isReady } = useAuth();
@@ -27,6 +28,7 @@ export function SiteHeader() {
               {label}
             </Link>;
           })}
+          <CartLink />
           <Link href={accountHref} className="rounded-xl bg-brand px-3 py-2.5 text-sm font-bold text-white transition hover:bg-brandDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:ml-2 sm:px-4">
             {accountLabel}
           </Link>

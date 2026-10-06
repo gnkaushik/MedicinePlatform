@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/auth/auth-context";
 import { applicationNavigation } from "@/config/navigation";
+import { CartLink } from "@/components/cart/cart-link";
 
 function initials(name: string) {
   return name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "MP";
@@ -67,6 +68,7 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
             </Link>
             <p className="hidden text-sm font-medium text-slate-500 lg:block">Care workspace</p>
             <div className="ml-auto flex items-center gap-3">
+              <CartLink />
               <span className="hidden max-w-48 truncate text-sm font-medium text-ink sm:block">{user.name}</span>
               <button aria-label="Sign out" className="grid size-10 place-items-center rounded-xl text-slate-600 transition hover:bg-slate-50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand lg:hidden" onClick={handleSignOut}><LogOut size={18} aria-hidden="true" /></button>
               <span className="grid size-9 place-items-center rounded-full bg-mint text-xs font-bold text-brand lg:hidden" aria-hidden="true">{initials(user.name)}</span>
