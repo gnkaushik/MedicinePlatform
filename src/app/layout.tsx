@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AuthProvider } from "@/auth/auth-context";
+import { CartProvider } from "@/cart/cart-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body><AuthProvider>{children}</AuthProvider></body>
+      <body><AuthProvider><CartProvider>{children}</CartProvider></AuthProvider></body>
     </html>
   );
 }
