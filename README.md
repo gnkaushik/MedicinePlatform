@@ -40,3 +40,7 @@ npm run build
 ```
 
 Every pull request targeting `main`, and every push to `main`, runs the same lint and production build through GitHub Actions.
+
+## Netlify deployment
+
+The repository uses Netlify's Next.js framework plugin with `npm run build` and `.next` as the publish directory. Netlify supplies the site `URL` used for canonical metadata and the generated sitemap. No application environment variables are required for this mock-data POC. All account, order, prescription, and booking state remains local to the browser session; no production data service is configured.
